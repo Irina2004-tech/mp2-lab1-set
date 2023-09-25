@@ -136,7 +136,7 @@ TEST(TBitField, or_operator_applied_to_bitfields_of_equal_size)
     // bf2 = 0101
     bf2.setBit(1);
     bf2.setBit(3);
-
+    
     // expBf = 0111
     expBf.setBit(1);
     expBf.setBit(2);
