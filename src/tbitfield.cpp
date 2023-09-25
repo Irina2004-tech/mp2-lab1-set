@@ -36,6 +36,7 @@ size_t TBitField::getIndex(const size_t n) const  // индекс в pМем д�
         return (n % (8 * sizeof(uint)));
     else
         throw "error";
+
 }
 
 uint TBitField::getMask(const size_t n) const // битовая маска для бита n
@@ -97,7 +98,6 @@ TBitField& TBitField::operator=(const TBitField &bf) // присваивание
         pMem[i] = bf.pMem[i];
 
     return *this;
-
 }
 
 bool TBitField::operator==(const TBitField &bf) const // сравнение
