@@ -10,6 +10,7 @@
 #include "tbitfield.h"
 
 TBitField::TBitField(size_t len)
+
 {
     bitLen = len;
     if (len % (sizeof(uint) * 8) != 0)
@@ -72,6 +73,7 @@ void TBitField::clrBit(const size_t n) // очистить бит
         pMem[n / (8 * sizeof(uint))] &= getMask(getIndex(n));
     else
         throw "error";
+
 }
 
 bool TBitField::getBit(const size_t n) const // получить значение бита
@@ -82,6 +84,7 @@ bool TBitField::getBit(const size_t n) const // получить значени�
         return true;
     else
         return false; 
+
 }
 
 // битовые операции
