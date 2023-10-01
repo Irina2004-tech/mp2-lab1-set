@@ -22,7 +22,7 @@ TBitField::TBitField(size_t len)
         pMem[i] = 0;
 }
 
-TBitField::TBitField(const TBitField &bf) // конструктор копирования
+TBitField::TBitField(const TBitField& bf) // конструктор копирования
 {
     bitLen = bf.bitLen;
     memLen = bf.memLen;
@@ -83,12 +83,12 @@ bool TBitField::getBit(const size_t n) const // получить значени�
     if (tmp1 & tmp2)
         return true;
     else
-        return false; 
+        return false;
 
 }
 
 // битовые операции
-TBitField& TBitField::operator=(const TBitField &bf) // присваивание
+TBitField& TBitField::operator=(const TBitField& bf) // присваивание
 {
     bitLen = bf.bitLen;
     if (memLen != bf.memLen) {
@@ -103,20 +103,20 @@ TBitField& TBitField::operator=(const TBitField &bf) // присваивание
     return *this;
 }
 
-bool TBitField::operator==(const TBitField &bf) const // сравнение
+bool TBitField::operator==(const TBitField& bf) const // сравнение
 {
-    if (bitLen != bf.bitLen)     
+    if (bitLen != bf.bitLen)
         return false;
     else
         for (int i = 0; i < memLen; i++)
-            if (pMem[i] != bf.pMem[i]){
+            if (pMem[i] != bf.pMem[i]) {
                 return false;
                 break;
             }
     return true;
 }
 
-bool TBitField::operator!=(const TBitField &bf) const // сравнение
+bool TBitField::operator!=(const TBitField& bf) const // сравнение
 {
     return !(*this == bf);
 
@@ -131,21 +131,21 @@ bool TBitField::operator!=(const TBitField &bf) const // сравнение
     return false;*/
 }
 
-TBitField TBitField::operator|(const TBitField &bf) // операция "или"
+TBitField TBitField::operator|(const TBitField& bf) // операция "или"
 {
     int len = bitLen;
     if (bf.bitLen > len)
         len = bf.bitLen;
     TBitField tmp(len);
-    for (int i = 0; i < memLen; i++) 
+    for (int i = 0; i < memLen; i++)
         tmp.pMem[i] = pMem[i];
-    for (int i = 0; i < bf.memLen; i++) 
+    for (int i = 0; i < bf.memLen; i++)
         tmp.pMem[i] |= bf.pMem[i];
     return tmp;
 
 }
 
-TBitField TBitField::operator&(const TBitField &bf) // операция "и"
+TBitField TBitField::operator&(const TBitField& bf) // операция "и"
 {
     int len = bitLen;
     if (bf.bitLen > len)
@@ -175,7 +175,7 @@ TBitField::~TBitField()
 }
 
 // ввод/вывод
-std::istream &operator>>(std::istream &istr, TBitField &bf) // ввод
+std::istream& operator>>(std::istream& istr, TBitField& bf) // ввод
 {
     char ch;
     istr >> ch;
@@ -192,7 +192,7 @@ std::istream &operator>>(std::istream &istr, TBitField &bf) // ввод
     return istr;
 }
 
-std::ostream &operator<<(std::ostream &ostr, const TBitField &bf) // вывод
+std::ostream& operator<<(std::ostream& ostr, const TBitField& bf) // вывод
 {
     int len = bf.getLength();
     for (int i = 0; i < len; i++)
